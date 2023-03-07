@@ -1,0 +1,14 @@
+# Query: $login-image
+# ContextLines: 1
+
+2 results - 2 files
+
+public\scss\_login.scss:
+  4  .bg-login-image {
+  5:   background: url($login-image);
+  6    background-position: center;
+
+public\scss\_variables.scss:
+  78  // Images
+  79: $login-image: 'https://unsplash.com/photos/hrhjn6ZTgrM' !default;
+  80  $register-image: 'https://source.unsplash.com/Mv9hjnEUHR4/600x800' !default;
