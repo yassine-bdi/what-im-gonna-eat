@@ -15,9 +15,13 @@ define('DB_PWD', '');
 
 $router = new Router($_GET['url']);
 
+$router->get('/','App\Controllers\HomeController@showDashboard'); 
+$router->get('/atba9','App\Controllers\MealsController@showMeals'); 
+$router->post('/addmeal','App\Controllers\MealsController@addMeal'); 
+$router->post('/editmeal/:id','App\Controllers\MealsController@editMeal'); 
+$router->post('/deletemeal/:id','App\Controllers\MealsController@deleteMeal'); 
 
-
-
+$router->post('/decide','App\Controllers\MealsController@decide'); 
 try {
     $router->run();
 } catch (NotFoundException $e) {

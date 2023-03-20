@@ -113,4 +113,12 @@ abstract class Model {
         }
     }
 
+    public function Count() 
+    {
+        $stmt = $this->db->getPDO()->prepare("SELECT COUNT(id) FROM {$this->table} ");
+        $stmt->execute();
+        $result = $stmt->fetchColumn(); 
+        return $result; 
+    }
+
 }

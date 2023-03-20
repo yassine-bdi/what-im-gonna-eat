@@ -23,6 +23,9 @@ class Validator {
                             break;
                         case substr($rule, 0, 3) === 'min':
                             $this->min($name, $this->data[$name], $rule);
+                        case substr($rule, 0, 3) === 'max':
+                            $this->max($name, $this->data[$name], $rule);
+                         
                         default:
                             # code...
                             break;
@@ -50,6 +53,16 @@ class Validator {
 
         if (strlen($value) < $limit) {
             $this->errors[$name][] = "{$name} doit comprendre un minimum de {$limit} caractères";
+        }
+    }
+
+    private function max(string $name, string $value, string $rule)
+    {
+        preg_match_all('/(\d+)/', $rule, $matches);
+        $limit = (int) $matches[0][0];
+
+        if (strlen($value) > $limit) {
+            $this->errors[$name][] = "{$name} doit comprendre un maximum de {$limit} caractères";
         }
     }
 
